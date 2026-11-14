@@ -1,34 +1,114 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Doppio</title><link rel="icon" href="icon.png"><style>
-  :root { --bg: #fbf8f4; --text: #2b1d14; --muted: #6f5a4b; --accent: #9a5a2c; --rule: #e8ddd2; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #1d1612; --text: #f2e9e1; --muted: #bba898; --accent: #e0a36f; --rule: #3a2d24; } }
+<title>Doppio — Keep your Mac awake until it's done</title>
+<meta name="description" content="A one-click menu bar app that keeps your Mac awake for as long as the work takes: until an app quits, a Terminal job finishes or a meeting ends. £0.99, no subscription, no data collected.">
+<meta property="og:title" content="Doppio — Keep your Mac awake until it's done">
+<meta property="og:description" content="One click in the menu bar. Stays awake until an app quits, a Terminal job finishes or a meeting ends — then lets your Mac sleep.">
+<meta property="og:image" content="https://drawohua.github.io/doppio/screenshot.png">
+<link rel="icon" href="icon.png"><style>
+  :root { --bg: #fbf8f4; --card: #f3ece4; --text: #2b1d14; --muted: #6f5a4b; --accent: #9a5a2c; --on-accent: #fbf8f4; --rule: #e8ddd2; --code: #2b1d14; --code-text: #f2e9e1; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #1d1612; --card: #2a201a; --text: #f2e9e1; --muted: #bba898; --accent: #e0a36f; --on-accent: #1d1612; --rule: #3a2d24; --code: #120d0a; --code-text: #f2e9e1; } }
+  * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
-  nav { display: flex; gap: 20px; align-items: center; margin-bottom: 40px; }
+  main { max-width: 880px; margin: 0 auto; padding: 40px 16px 64px; }
+  nav { display: flex; gap: 20px; align-items: center; margin-bottom: 48px; }
   nav a { color: var(--muted); text-decoration: none; white-space: nowrap; }
-  @media (max-width: 420px) { nav { gap: 14px; font-size: 15px; } } nav a:hover { color: var(--accent); }
+  @media (max-width: 420px) { nav { gap: 14px; font-size: 15px; } }
+  nav a:hover { color: var(--accent); }
   nav .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 600; margin-right: auto; }
   nav img { width: 32px; height: 32px; }
-  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 8px; } h2 { font-size: 20px; margin: 32px 0 8px; }
-  .muted { color: var(--muted); } a { color: var(--accent); } code { overflow-wrap: anywhere; }
-  .get { display: inline-block; margin-top: 8px; padding: 10px 20px; border-radius: 10px; background: var(--accent); color: var(--bg); font-weight: 600; text-decoration: none; } .get:hover { opacity: .9; }
-  img.shot { width: 100%; height: auto; border-radius: 12px; margin: 24px 0; }
-  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; }
+  h1 { font-size: clamp(36px, 7vw, 56px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 16px; }
+  h2 { font-size: clamp(24px, 4vw, 30px); line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 12px; }
+  .nb { white-space: nowrap; }
+  h3 { font-size: 18px; margin: 0 0 6px; }
+  p { margin: 0 0 12px; }
+  .lead { font-size: 20px; color: var(--muted); max-width: 620px; }
+  .muted { color: var(--muted); } a { color: var(--accent); }
+  .get { display: inline-block; padding: 12px 22px; border-radius: 12px; background: var(--accent); color: var(--on-accent); font-weight: 600; text-decoration: none; }
+  .get:hover { opacity: .9; }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 24px 0 0; }
+  .cta .muted { font-size: 15px; }
+  img { display: block; max-width: 100%; height: auto; border-radius: 14px; }
+  .hero-shot { margin: 40px 0 72px; }
+  .points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 80px; }
+  .points div { background: var(--card); border-radius: 14px; padding: 20px; }
+  .points p { color: var(--muted); font-size: 16px; margin: 0; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 80px; }
+  .row.flip .text { order: 2; }
+  ul { padding-left: 20px; margin: 12px 0 0; } li { margin-bottom: 6px; }
+  pre { background: var(--code); color: var(--code-text); border-radius: 12px; padding: 16px; font-size: 14px; line-height: 1.5; overflow-x: auto; margin: 16px 0 0; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .dev { background: var(--card); border-radius: 18px; padding: 32px; margin-bottom: 80px; }
+  .dev .text { max-width: 640px; }
+  .closing { text-align: center; border-top: 1px solid var(--rule); padding-top: 56px; }
+  .closing .cta { justify-content: center; }
+  footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; }
+  @media (max-width: 720px) {
+    .points { grid-template-columns: 1fr; margin-bottom: 56px; }
+    .row { grid-template-columns: 1fr; gap: 20px; margin-bottom: 56px; }
+    .row.flip .text { order: 0; }
+    .dev { padding: 20px; margin-bottom: 56px; }
+    .hero-shot { margin: 32px 0 48px; }
+  }
 </style></head>
 <body><main>
 <nav><a class="brand" href="./"><img src="icon.png" alt="">Doppio</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">App Store</a></nav>
-<h1>Keep your Mac awake. One click.</h1>
-<p class="muted">Doppio lives in your menu bar. Click the cup and your Mac won't sleep; click again and it's back to normal.</p>
-<p><a class="get" href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">Get Doppio on the Mac App Store</a></p>
-<img class="shot" src="screenshot.png" alt="Doppio's menu in the macOS menu bar">
-<h2>What it does</h2>
-<ul>
-<li>Stay awake for an hour, two, indefinitely, or until a time you choose</li>
-<li>Stay awake until an app quits, or until a Terminal job signals it's done</li>
-<li>Switch on automatically while chosen apps run, or during calendar meetings</li>
-<li>Let the display sleep while the Mac keeps working</li>
-</ul>
-<p>No account. No data collected. Never goes online.</p>
-<footer>© 2026 Howard Au · Doppio</footer>
+
+<h1>Keep your Mac awake <span class="nb">until it&#39;s done.</span></h1>
+<p class="lead">Most keep-awake apps make you guess how long. Doppio waits for the work itself — the export, the build, the download, the meeting — then lets your Mac sleep.</p>
+<div class="cta"><a class="get" href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">Get Doppio on the Mac App Store</a><span class="muted">£0.99 / $0.99 once · No subscription · macOS 13 or later</span></div>
+
+<img class="hero-shot" src="screenshot.png" alt="Doppio's menu in the macOS menu bar, showing a countdown and options such as 1 hour, 2 hours and Until a Task Finishes">
+
+<section class="points">
+  <div><h3>One click</h3><p>Click the cup to stay awake. Click again to stop. Nothing to set up.</p></div>
+  <div><h3>No guessing</h3><p>Stay on until an app quits, a Terminal job finishes or a time you pick.</p></div>
+  <div><h3>Nothing leaves your Mac</h3><p>No account, no tracking, never goes online. Quit it and your settings are untouched.</p></div>
+</section>
+
+<section class="row">
+  <div class="text">
+    <h2>Stay awake until it's done</h2>
+    <p class="muted">Pick the app that's doing the work and Doppio keeps your Mac awake until it quits. No timer to run out halfway through.</p>
+    <ul>
+      <li>Until an app quits — a video export, an installer, a game update</li>
+      <li>Until a Terminal command or script says it's finished</li>
+      <li>Until a time — "keep awake until 5:30"</li>
+      <li>Or simply 1 hour, 2 hours, or indefinitely</li>
+    </ul>
+  </div>
+  <img src="until-done.jpg" alt="Doppio's 'Wait for this app to quit' menu listing Music, QuickTime Player, Terminal and Xcode">
+</section>
+
+<section class="row flip">
+  <div class="text">
+    <h2>On automatically</h2>
+    <p class="muted">Set it once and forget it.</p>
+    <ul>
+      <li>Whenever chosen apps are open — Keynote, a video player, your editor</li>
+      <li>During calendar meetings with invitees or a video link, so the screen never dims mid-call</li>
+      <li>Let the display sleep while the Mac keeps working on downloads and renders</li>
+      <li>Countdown in the menu bar and an optional "done" notification</li>
+    </ul>
+  </div>
+  <img src="automatic.jpg" alt="Doppio's settings menu with While These Apps Are Running, During Calendar Events and Allow Display to Sleep">
+</section>
+
+<section class="dev">
+  <div class="text">
+    <h2>Built for long jobs and AI coding tools</h2>
+    <p class="muted">Any script or tool can tell Doppio "keep the Mac awake until I'm done". Each job has its own name, so several can run at once, and none of them will switch off a session you started yourself.</p>
+<pre><code>open -g "doppio://wait?label=Export" &amp;&amp; ./export.sh
+open -g "doppio://done?label=Export"</code></pre>
+    <p class="muted" style="margin-top:16px">Add the same two lines as hooks in your AI coding assistant and your Mac stays awake while it works, then sleeps when it's finished. <a href="support.html">All commands</a></p>
+  </div>
+</section>
+
+<section class="closing">
+  <h2>A small app that does one job well.</h2>
+  <p class="muted">Uses Apple's standard power management. Collects no data.</p>
+  <div class="cta"><a class="get" href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">Get Doppio — £0.99</a></div>
+</section>
+
+<footer>© 2026 Howard Au · Doppio · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a></footer>
 </main></body></html>
