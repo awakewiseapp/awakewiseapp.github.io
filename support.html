@@ -32,10 +32,14 @@
 <li><code>doppio://toggle</code> — turn on or off</li>
 <li><code>doppio://wait?label=NAME</code> — stay on until the matching <code>done</code></li>
 <li><code>doppio://wait?label=NAME&amp;pid=1234</code> — stay on until process 1234 quits</li>
+<li><code>doppio://wait?for=downloads</code> — stay on until downloads finish (or <code>for=transfers</code>, <code>for=idle</code>)</li>
 <li><code>doppio://done?label=NAME</code> — that task has finished; add <code>&amp;notify=0</code> for no notification</li>
 </ul>
 <p>A task started this way never turns off a session you started yourself.</p>
 <p><strong>AI coding tools</strong> such as Claude Code can call these from hooks so your Mac stays awake while they work: <code>doppio://wait?label=Claude</code> when a prompt is sent, <code>doppio://done?label=Claude&amp;notify=0</code> when it finishes.</p>
+<p><strong>Can I use Shortcuts, Siri or Control Center?</strong> Yes. In the Shortcuts app, search for Doppio to find Keep Mac Awake, Keep Mac Awake Until Done, Let Mac Sleep, Toggle Doppio and Is Doppio On — or ask Siri to "Turn on Doppio". On macOS 26 or later, open Control Center › Edit Controls and add "Keep Mac Awake".</p>
+<p><strong>How do "Downloads Finish", "Transfers Finish" and "The Mac Is Idle" know when to stop?</strong> Doppio checks every few seconds whether files in your Downloads folder are still growing, whether data is still moving over the network, or whether your Mac is still busy. Once things have been quiet for a minute or two, it turns off.</p>
+<p><strong>Why did Doppio switch off on battery?</strong> That's Battery Saver (right-click › More › Battery Saver). Below the level you choose, Doppio stops keeping your MacBook awake automatically so it can sleep. Clicking the cup still turns it on. Choose Never to switch it off.</p>
 <p><strong>Does Doppio change my settings?</strong> No. It uses Apple's standard power management while it's on. Quit Doppio and everything is as before.</p>
 <p><strong>Why does it ask for calendar access?</strong> Only if you turn on "During Calendar Events". Your events are read on your Mac and never leave it.</p>
 <footer>© 2026 Howard Au · Doppio</footer>
