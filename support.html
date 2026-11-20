@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Doppio Support</title><link rel="icon" href="icon.png"><style>
+<title>AwakeWise Support</title><link rel="icon" href="icon.png"><style>
   :root { --bg: #fbf8f4; --text: #2b1d14; --muted: #6f5a4b; --accent: #9a5a2c; --rule: #e8ddd2; }
   @media (prefers-color-scheme: dark) { :root { --bg: #1d1612; --text: #f2e9e1; --muted: #bba898; --accent: #e0a36f; --rule: #3a2d24; } }
   body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
@@ -16,31 +16,32 @@
   footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; }
 </style></head>
 <body><main>
-<nav><a class="brand" href="./"><img src="icon.png" alt="">Doppio</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">App Store</a></nav>
+<nav><a class="brand" href="./"><img src="icon.png" alt="">AwakeWise</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">App Store</a></nav>
 <h1>Support</h1>
-<p>Found a problem or have an idea? <a href="https://github.com/drawohua/doppio/issues">Open an issue on GitHub</a> — please include your macOS version and what you expected to happen.</p>
+<p>Found a problem or have an idea? <a href="https://github.com/awakewiseapp/awakewiseapp.github.io/issues">Open an issue on GitHub</a> — please include your macOS version and what you expected to happen.</p>
 <h2>Common questions</h2>
-<p><strong>Where is Doppio?</strong> It's a menu bar app with no Dock icon. Look for the coffee cup near the clock. If your menu bar is crowded, macOS may tuck it away — hold ⌘ and drag it to the right.</p>
-<p><strong>How do I open the menu?</strong> Right-click (or Control-click) the cup. A normal click turns Doppio on or off.</p>
+<p><strong>Where is AwakeWise?</strong> It's a menu bar app with no Dock icon. Look for the coffee cup near the clock. If your menu bar is crowded, macOS may tuck it away — hold ⌘ and drag it to the right.</p>
+<p><strong>How do I open the menu?</strong> Right-click (or Control-click) the cup. A normal click turns AwakeWise on or off.</p>
 <p><strong>How do I keep awake until a Terminal command finishes?</strong> Run<br>
-<code>open -g "doppio://wait?label=Job" &amp;&amp; your-command; open -g "doppio://done?label=Job"</code></p>
+<code>open -g "awakewise://wait?label=Job" &amp;&amp; your-command; open -g "awakewise://done?label=Job"</code></p>
 <h2>All Terminal and script commands</h2>
-<p>Doppio understands these <code>doppio://</code> links. Run them with <code>open -g "…"</code> (keep the quotes). The same list is in the app: right-click the cup › Until a Task Finishes › From Terminal or Scripts…</p>
+<p>AwakeWise understands these <code>awakewise://</code> links. Run them with <code>open -g "…"</code> (keep the quotes). The same list is in the app: right-click the cup › Until a Task Finishes › From Terminal or Scripts…</p>
 <ul>
-<li><code>doppio://start</code> — turn on (add <code>?minutes=30</code> for a timer)</li>
-<li><code>doppio://stop</code> — turn off</li>
-<li><code>doppio://toggle</code> — turn on or off</li>
-<li><code>doppio://wait?label=NAME</code> — stay on until the matching <code>done</code></li>
-<li><code>doppio://wait?label=NAME&amp;pid=1234</code> — stay on until process 1234 quits</li>
-<li><code>doppio://wait?for=downloads</code> — stay on until downloads finish (or <code>for=transfers</code>, <code>for=idle</code>)</li>
-<li><code>doppio://done?label=NAME</code> — that task has finished; add <code>&amp;notify=0</code> for no notification</li>
+<li><code>awakewise://start</code> — turn on (add <code>?minutes=30</code> for a timer)</li>
+<li><code>awakewise://stop</code> — turn off</li>
+<li><code>awakewise://toggle</code> — turn on or off</li>
+<li><code>awakewise://wait?label=NAME</code> — stay on until the matching <code>done</code></li>
+<li><code>awakewise://wait?label=NAME&amp;pid=1234</code> — stay on until process 1234 quits</li>
+<li><code>awakewise://wait?for=downloads</code> — stay on until downloads finish (or <code>for=transfers</code>, <code>for=idle</code>)</li>
+<li><code>awakewise://done?label=NAME</code> — that task has finished; add <code>&amp;notify=0</code> for no notification</li>
 </ul>
 <p>A task started this way never turns off a session you started yourself.</p>
-<p><strong>AI coding tools</strong> such as Claude Code can call these from hooks so your Mac stays awake while they work: <code>doppio://wait?label=Claude</code> when a prompt is sent, <code>doppio://done?label=Claude&amp;notify=0</code> when it finishes.</p>
-<p><strong>Can I use Shortcuts, Siri or Control Center?</strong> Yes. In the Shortcuts app, search for Doppio to find Keep Mac Awake, Keep Mac Awake Until Done, Let Mac Sleep, Toggle Doppio and Is Doppio On — or ask Siri to "Turn on Doppio". On macOS 26 or later, open Control Center › Edit Controls and add "Keep Mac Awake".</p>
-<p><strong>How do "Downloads Finish", "Transfers Finish" and "The Mac Is Idle" know when to stop?</strong> Doppio checks every few seconds whether files in your Downloads folder are still growing, whether data is still moving over the network, or whether your Mac is still busy. Once things have been quiet for a minute or two, it turns off.</p>
-<p><strong>Why did Doppio switch off on battery?</strong> That's Battery Saver (right-click › More › Battery Saver). Below the level you choose, Doppio stops keeping your MacBook awake automatically so it can sleep. Clicking the cup still turns it on. Choose Never to switch it off.</p>
-<p><strong>Does Doppio change my settings?</strong> No. It uses Apple's standard power management while it's on. Quit Doppio and everything is as before.</p>
+<p><strong>AI coding tools</strong> such as Claude Code can call these from hooks so your Mac stays awake while they work: <code>awakewise://wait?label=Claude</code> when a prompt is sent, <code>awakewise://done?label=Claude&amp;notify=0</code> when it finishes.</p>
+<p><strong>Can I use Shortcuts, Siri or Control Center?</strong> Yes. In the Shortcuts app, search for AwakeWise to find Keep Mac Awake, Keep Mac Awake Until Done, Let Mac Sleep, Toggle AwakeWise and Is AwakeWise On — or ask Siri to "Turn on AwakeWise". On macOS 26 or later, open Control Center › Edit Controls and add "Keep Mac Awake".</p>
+<p><strong>How do "Downloads Finish", "Transfers Finish" and "The Mac Is Idle" know when to stop?</strong> AwakeWise checks every few seconds whether files in your Downloads folder are still growing, whether data is still moving over the network, or whether your Mac is still busy. Once things have been quiet for a minute or two, it turns off.</p>
+<p><strong>Why did AwakeWise switch off on battery?</strong> That's Battery Saver (right-click › More › Battery Saver). Below the level you choose, AwakeWise stops keeping your MacBook awake automatically so it can sleep. Clicking the cup still turns it on. Choose Never to switch it off.</p>
+<p><strong>Was AwakeWise called Doppio?</strong> Yes — Doppio became AwakeWise in version 1.1.1. Same app, same settings. Links that start with <code>doppio://</code> keep working, so you don't need to change your scripts or hooks.</p>
+<p><strong>Does AwakeWise change my settings?</strong> No. It uses Apple's standard power management while it's on. Quit AwakeWise and everything is as before.</p>
 <p><strong>Why does it ask for calendar access?</strong> Only if you turn on "During Calendar Events". Your events are read on your Mac and never leave it.</p>
-<footer>© 2026 Howard Au · Doppio</footer>
+<footer>© 2026 Howard Au · AwakeWise</footer>
 </main></body></html>

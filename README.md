@@ -1,7 +1,7 @@
-# Doppio
+# AwakeWise
 
-Website for Doppio, a menu bar app that keeps your Mac awake.
+Website for AwakeWise, a menu bar app that keeps your Mac awake.
 
-- Home: https://drawohua.github.io/doppio/
-- Support: https://drawohua.github.io/doppio/support.html
-- Privacy policy: https://drawohua.github.io/doppio/privacy.html
+- Home: https://awakewiseapp.github.io/
+- Support: https://awakewiseapp.github.io/support.html
+- Privacy policy: https://awakewiseapp.github.io/privacy.html

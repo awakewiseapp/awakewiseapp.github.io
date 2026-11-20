@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Doppio — Keep your Mac awake until it's done</title>
+<title>AwakeWise — Keep your Mac awake until it's done</title>
 <meta name="description" content="A one-click menu bar app that keeps your Mac awake for as long as the work takes: until an app quits, a Terminal job finishes or a meeting ends. Free, no account, no data collected.">
-<meta property="og:title" content="Doppio — Keep your Mac awake until it's done">
+<meta property="og:title" content="AwakeWise — Keep your Mac awake until it's done">
 <meta property="og:description" content="One click in the menu bar. Stays awake until an app quits, a Terminal job finishes or a meeting ends — then lets your Mac sleep.">
-<meta property="og:image" content="https://drawohua.github.io/doppio/screenshot.png">
+<meta property="og:image" content="https://awakewiseapp.github.io/screenshot.png">
 <link rel="icon" href="icon.png"><style>
   :root { --bg: #fbf8f4; --card: #f3ece4; --text: #2b1d14; --muted: #6f5a4b; --accent: #9a5a2c; --on-accent: #fbf8f4; --rule: #e8ddd2; --code: #2b1d14; --code-text: #f2e9e1; }
   @media (prefers-color-scheme: dark) { :root { --bg: #1d1612; --card: #2a201a; --text: #f2e9e1; --muted: #bba898; --accent: #e0a36f; --on-accent: #1d1612; --rule: #3a2d24; --code: #120d0a; --code-text: #f2e9e1; } }
@@ -52,13 +52,13 @@
   }
 </style></head>
 <body><main>
-<nav><a class="brand" href="./"><img src="icon.png" alt="">Doppio</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">App Store</a></nav>
+<nav><a class="brand" href="./"><img src="icon.png" alt="">AwakeWise</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">App Store</a></nav>
 
 <h1>Keep your Mac awake <span class="nb">until it&#39;s done.</span></h1>
-<p class="lead">Most keep-awake apps make you guess how long. Doppio waits for the work itself — the export, the build, the download, the meeting — then lets your Mac sleep.</p>
-<div class="cta"><a class="get" href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">Get Doppio on the Mac App Store</a><span class="muted">Free · No account · macOS 13 or later</span></div>
+<p class="lead">Most keep-awake apps make you guess how long. AwakeWise waits for the work itself — the export, the build, the download, the meeting — then lets your Mac sleep.</p>
+<div class="cta"><a class="get" href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">Get AwakeWise on the Mac App Store</a><span class="muted">Free · No account · macOS 13 or later · Formerly Doppio</span></div>
 
-<img class="hero-shot" src="screenshot.png" alt="Doppio's menu in the macOS menu bar, showing a countdown and options such as 1 hour, 2 hours and Until a Task Finishes">
+<img class="hero-shot" src="screenshot.png" alt="AwakeWise's menu in the macOS menu bar, showing a countdown and options such as 1 hour, 2 hours and Until a Task Finishes">
 
 <section class="points">
   <div><h3>One click</h3><p>Click the cup to stay awake. Click again to stop. Nothing to set up.</p></div>
@@ -69,7 +69,7 @@
 <section class="row">
   <div class="text">
     <h2>Stay awake until it's done</h2>
-    <p class="muted">Tell Doppio what to wait for and it keeps your Mac awake until the work is done. No timer to run out halfway through.</p>
+    <p class="muted">Tell AwakeWise what to wait for and it keeps your Mac awake until the work is done. No timer to run out halfway through.</p>
     <ul>
       <li>Until downloads finish, network transfers finish, or your Mac goes idle — no need to know which app is doing the work</li>
       <li>Until a folder stops changing — perfect for exports and renders</li>
@@ -79,7 +79,7 @@
       <li>Or simply 1 hour, 2 hours, or indefinitely</li>
     </ul>
   </div>
-  <img src="until-done.jpg" alt="Doppio's 'Wait for this app to quit' menu listing Music, QuickTime Player, Terminal and Xcode">
+  <img src="until-done.jpg" alt="AwakeWise's 'Wait for this app to quit' menu listing Music, QuickTime Player, Terminal and Xcode">
 </section>
 
 <section class="row flip">
@@ -96,15 +96,15 @@
       <li>Countdown in the menu bar and an optional "done" notification</li>
     </ul>
   </div>
-  <img src="automatic.jpg" alt="Doppio's settings menu with While These Apps Are Running, During Calendar Events and Allow Display to Sleep">
+  <img src="automatic.jpg" alt="AwakeWise's settings menu with While These Apps Are Running, During Calendar Events and Allow Display to Sleep">
 </section>
 
 <section class="dev">
   <div class="text">
     <h2>Built for long jobs and AI coding tools</h2>
-    <p class="muted">Any script or tool can tell Doppio "keep the Mac awake until I'm done". Each job has its own name, so several can run at once, and none of them will switch off a session you started yourself.</p>
-<pre><code>open -g "doppio://wait?label=Export" &amp;&amp; ./export.sh
-open -g "doppio://done?label=Export"</code></pre>
+    <p class="muted">Any script or tool can tell AwakeWise "keep the Mac awake until I'm done". Each job has its own name, so several can run at once, and none of them will switch off a session you started yourself.</p>
+<pre><code>open -g "awakewise://wait?label=Export" &amp;&amp; ./export.sh
+open -g "awakewise://done?label=Export"</code></pre>
     <p class="muted" style="margin-top:16px">Add the same two lines as hooks in your AI coding assistant and your Mac stays awake while it works, then sleeps when it's finished. <a href="support.html">All commands</a></p>
   </div>
 </section>
@@ -112,8 +112,8 @@ open -g "doppio://done?label=Export"</code></pre>
 <section class="closing">
   <h2>A small app that does one job well.</h2>
   <p class="muted">Uses Apple's standard power management. Collects no data.</p>
-  <div class="cta"><a class="get" href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">Get Doppio — it&#39;s free</a></div>
+  <div class="cta"><a class="get" href="https://apps.apple.com/app/doppio-keep-awake/id6823794982">Get AwakeWise — it&#39;s free</a></div>
 </section>
 
-<footer>© 2026 Howard Au · Doppio · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a></footer>
+<footer>© 2026 Howard Au · AwakeWise · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a></footer>
 </main></body></html>
